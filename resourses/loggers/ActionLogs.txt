@@ -1,0 +1,12 @@
+
+
+2024-12-13 11:46:34 - User logged in
+2024-12-13 11:46:34 - The path to the folder was obtained: invoices
+2024-12-13 11:46:34 - Start processing invoices
+2024-12-13 11:46:34 - The path to the folder was obtained: orders
+2024-12-13 11:46:34 - Start processing orders
+2024-12-13 11:46:34 - The path to the folder was obtained: checks
+2024-12-13 11:46:34 - Start processing checks
+2024-12-13 11:46:34 - End of work 
+----------------------------------------
+
