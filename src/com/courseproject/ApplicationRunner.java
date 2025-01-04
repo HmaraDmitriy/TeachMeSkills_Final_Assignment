@@ -1,6 +1,7 @@
 package com.courseproject;
 
 import com.courseproject.exception.fileException.NullFolderException;
+import com.courseproject.logger.LoggerApplication;
 import com.courseproject.operation.foldersOperation.FoldersOperation;
 import com.courseproject.statistics.checksStatistics.ChecksStatistics;
 import com.courseproject.statistics.invoicesStatistics.InvoicesStatistics;
@@ -12,7 +13,7 @@ import com.s3.java.PropertyS3;
 import java.util.Scanner;
 
 public class ApplicationRunner {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         try {
             System.out.println("Starting Two-Factor Authentication...");
@@ -38,18 +39,22 @@ public class ApplicationRunner {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the path to the file: ");
         String path = scanner.nextLine();
-        scanner.close();
+
         try {
             FoldersOperation.distributeFolders(path);
 
             double totalTurnoverOrders = OrdersStatistics.calculatesTotalTurnoverOrders();
-            double totalTurnoverChecks =  ChecksStatistics.calculatesTotalTurnoverChecks();
+            double totalTurnoverChecks = ChecksStatistics.calculatesTotalTurnoverChecks();
             double totalTurnoverInvoices = InvoicesStatistics.calculatesTotalTurnoverInvoices();
             WriteStatistics.writeStatisticsToFile(totalTurnoverOrders, totalTurnoverChecks, totalTurnoverInvoices);
+
+            System.out.println("Folders distributed and statistics written successfully.");
         } catch (NullFolderException e) {
             System.out.println(e.getMessage());
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+        LoggerApplication.processFolders("invoices", "orders", "checks");
     }
 }
