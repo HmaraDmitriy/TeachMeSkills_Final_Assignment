@@ -26,7 +26,7 @@ public class InvoicesStatistics {
                                     String[] words = line.split(" ");
                                     for (String word : words) {
                                         String cleanedWord = word.replaceAll("\\$", "");
-                                        if (cleanedWord.matches("\\d+(\\.\\d+)?")) { //слово состоит только из цифр с десятичной точкой или просто цифр
+                                        if (cleanedWord.matches("\\d+(\\.\\d+)?")) {
                                             double number = Double.parseDouble(cleanedWord);
                                             totalTurnoverInvoices += number;
                                         }

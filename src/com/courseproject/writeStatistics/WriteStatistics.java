@@ -13,14 +13,13 @@ public class WriteStatistics {
         Path finalStatisticsPath = Paths.get("resourses", "Statistics", "FinalStatistics");
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(String.valueOf(finalStatisticsPath), true))) {// true - добавление в файл
-            writer.write("---------------------Финальная статистика---------------");
+            writer.write("---------------------Final statistics---------------");
             writer.newLine();
             writer.write("Total Turnover by Orders: " + totalTurnoverOrders);
-            writer.newLine(); // Новая строка
+            writer.newLine();
             writer.write("Total Turnover by Checks: " + totalTurnoverChecks);
-            writer.newLine(); // Новая
+            writer.newLine();
             writer.write("Total Turnover by Invoices: " + totalTurnoverInvoices);
-            //writer.newLine(); // Новая строка
         } catch (IOException e) {
             e.printStackTrace();
         }

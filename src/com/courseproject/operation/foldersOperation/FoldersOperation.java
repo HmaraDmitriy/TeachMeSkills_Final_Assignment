@@ -11,9 +11,9 @@ public class FoldersOperation {
 
     public static void distributeFolders(String path) throws NullFolderException {
 
-        File mainFolder = new File(path); // приводим главный путь к главной папке
+        File mainFolder = new File(path);
 
-        File[] subfolders = mainFolder.listFiles(); // создаем массив подпапок в главной папке
+        File[] subfolders = mainFolder.listFiles();
         if (subfolders == null) {
             throw new NullFolderException("SubFolders are equal null.", 909);
         }

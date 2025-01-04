@@ -52,7 +52,7 @@ public class twoFARunner {
         try {
             boolean isAuthenticated = launchTFA();
             if (isAuthenticated) {
-                System.out.println("Welcome to the application!");
+                System.out.println("Welcome!");
             }
         } catch (WrongLoginException e) {
             System.err.println("Authentication error: " + e.getMessage());

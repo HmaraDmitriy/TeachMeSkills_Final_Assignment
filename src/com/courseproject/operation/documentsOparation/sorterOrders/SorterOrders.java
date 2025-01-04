@@ -1,6 +1,9 @@
 package com.courseproject.operation.documentsOparation.sorterOrders;
 
+
 import com.courseproject.exception.fileException.NullFolderException;
+
+
 
 import java.io.File;
 import java.nio.file.Path;
@@ -24,8 +27,8 @@ public class SorterOrders {
                 if (fileName.startsWith("2024") && (fileName.toLowerCase().contains ("order"))
                         && (fileName.endsWith("txt"))) {
                 } else {
-                    File invalidFile = new File(invalidFolder, fileName); // создает файл с этим же именем но в папке invalidFolder
-                    file.renameTo(invalidFile); // перемещает файл в новую папку с новым путем
+                    File invalidFile = new File(invalidFolder, fileName);
+                    file.renameTo(invalidFile);
                 }
             }
         }

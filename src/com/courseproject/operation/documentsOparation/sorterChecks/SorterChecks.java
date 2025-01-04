@@ -26,8 +26,8 @@ public class SorterChecks {
                 if (fileName.startsWith("2024") && (fileName.endsWith("txt"))
                         && (fileName.toLowerCase().contains("bill"))) {
                 } else {
-                    File invalidFile = new File(invalidFolder, fileName); // создает файл InvalidFile с этим же именем но в папке invalidFolder
-                    file.renameTo(invalidFile); // перемещает файл в новую папку с новым путем
+                    File invalidFile = new File(invalidFolder, fileName);
+                    file.renameTo(invalidFile);
                 }
             }
         }

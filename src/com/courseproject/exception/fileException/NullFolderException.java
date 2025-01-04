@@ -1,5 +1,6 @@
 package com.courseproject.exception.fileException;
 
+
 public class NullFolderException extends Exception{
     private int exceptionCode;
 

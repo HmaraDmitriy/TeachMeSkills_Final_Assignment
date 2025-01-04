@@ -26,8 +26,8 @@ public class SorterInvoices {
                 if (fileName.contains("2024") && (fileName.endsWith("txt"))
                         && (fileName.toLowerCase().contains("invoice"))){
                 } else {
-                    File invalidFile = new File(invalidFolder, fileName); // создает файл с этим же именем но в папке invalidFolder
-                    file.renameTo(invalidFile); // перемещает файл в новую папку с новым путем
+                    File invalidFile = new File(invalidFolder, fileName);
+                    file.renameTo(invalidFile);
                 }
             }
         }
