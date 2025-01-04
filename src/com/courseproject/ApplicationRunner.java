@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
-
         try {
             System.out.println("Starting Two-Factor Authentication...");
             boolean isAuthenticated = twoFARunner.launchTFA();
@@ -37,24 +36,31 @@ public class ApplicationRunner {
         }
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the path to the file: ");
+        System.out.print("Enter the path to the folder: ");
         String path = scanner.nextLine();
+        scanner.close();
 
         try {
-            FoldersOperation.distributeFolders(path);
 
+            System.out.println("Distributing folders...");
+            FoldersOperation.distributeFolders(path);
+            System.out.println("Folders distributed successfully.");
+
+            System.out.println("Calculating statistics...");
             double totalTurnoverOrders = OrdersStatistics.calculatesTotalTurnoverOrders();
             double totalTurnoverChecks = ChecksStatistics.calculatesTotalTurnoverChecks();
             double totalTurnoverInvoices = InvoicesStatistics.calculatesTotalTurnoverInvoices();
             WriteStatistics.writeStatisticsToFile(totalTurnoverOrders, totalTurnoverChecks, totalTurnoverInvoices);
+            System.out.println("Statistics calculated and written successfully.");
 
-            System.out.println("Folders distributed and statistics written successfully.");
         } catch (NullFolderException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Folder operation error: " + e.getMessage());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("An error occurred: " + e.getMessage());
         }
 
+        System.out.println("Processing folders and generating logs...");
         LoggerApplication.processFolders("invoices", "orders", "checks");
+        System.out.println("Folder processing and logging completed.");
     }
 }
