@@ -25,7 +25,7 @@ public class LoggerApplication {
         Path folderPath = Paths.get("E:\\TeachMeSkills_Final_Assignment\\resourses\\" + folderName);
 
         if (!Files.exists(folderPath)) {
-            Logger.errorLogs("Folder not found: " + folderName);
+            Logger.errorLogs("Invalid files not found: " + folderName);
             return;
         }
 
